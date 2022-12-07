@@ -3,16 +3,11 @@ from tkinter import messagebox
 import random
 import pyperclip
 import json
-
+import string
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def generate_password():
     if len(password_entry.get()) == 0:
-        letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
-                   'v',
-                   'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
-                   'R',
-                   'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
         numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
         symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
@@ -20,7 +15,7 @@ def generate_password():
         nr_symbols = random.randint(2, 4)
         nr_numbers = random.randint(2, 4)
 
-        password_letters = [random.choice(letters) for _ in range(nr_letters)]
+        password_letters = [random.choice(string.ascii_letters) for _ in range(nr_letters)]
         password_symbols = [random.choice(symbols) for _ in range(nr_symbols)]
         password_numbers = [random.choice(numbers) for _ in range(nr_numbers)]
 
@@ -112,7 +107,7 @@ email_user_label.grid(row=2, column=0)
 
 email_user_entry = Entry(width=56)
 email_user_entry.grid(row=2, column=1, columnspan=2)
-email_user_entry.insert(0, "bdamilola@gmail.com")
+email_user_entry.insert(0, "@gmail.com")
 
 password_label = Label(text="Password:")
 password_label.grid(row=3, column=0)
